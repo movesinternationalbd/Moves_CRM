@@ -7,9 +7,9 @@
     "server": "npm.cmd run dev --prefix server",
     "client": "npm.cmd run dev --prefix client",
     "seed": "npm.cmd run seed --prefix server",
-    "build": "npm run build --prefix client",
+    "build": "cd client && npx vite build",
     "install:all": "npm.cmd install --prefix server && npm.cmd install --prefix client",
-    "start": "npm run build --prefix client && cross-env NODE_ENV=production npm start --prefix server"
+    "start": "cd client && npx vite build && cd ../server && cross-env NODE_ENV=production node src/index.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
